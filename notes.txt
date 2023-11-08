@@ -1,0 +1,141 @@
+https://www.youtube.com/watch?v=q4mr71mFBr4 - Navbar 24:18
+
+cd client
+npm i
+npm start
+
+
+
+
+end
+ctrl + c ->Y 
+
+
+contact page 
+
+https://www.youtube.com/watch?v=On_JzulTH-M 
+
+Reference Mongo:
+https://www.youtube.com/watch?v=o7dZWGiXcA8 
+https://www.youtube.com/watch?v=VuSt5-AwL8Y 
+
+Landing page
+https://www.youtube.com/watch?v=Pysfwf44P84
+
+
+Mission Vision Objective
+https://www.youtube.com/watch?v=IdVECN9-D1Y 
+
+office address
+school name with address
+class
+email IdVECN9
+date of joining 
+mode of transpory bus/own vehicle/other
+https://www.youtube.com/watch?v=U4hiX0VWNWY - Table Player data
+
+
+
+On log out , remove localStorage for
+authorizeToken, edit coach
+
+
+import { useLocation } from 'react-router-dom';
+
+function EditPage() {
+  const location = useLocation();
+  const someData = location.state?.someData;
+
+  return (
+    <div>
+      <h1>Edit page</h1>
+      <p>Received data: {someData}</p>
+    </div>
+  );
+}
+
+
+//////
+import { useNavigate } from 'react-router-dom';
+
+function MyComponent() {
+  const navigate = useNavigate();
+
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`, { state: { someData: 'Hello' } });
+  };
+
+  return (
+    <button onClick={() => handleEdit(123)}>Edit item 123</button>
+  );
+}
+
+
+//Photo
+const express = require('express');
+const router = express.Router();
+const multer = require('multer');
+const { Storage } = require('@google-cloud/storage');
+
+const storage = new Storage({
+  projectId: 'your-project-id',
+  keyFilename: '/path/to/your/keyfile.json',
+});
+
+const upload = multer();
+
+router.post('/upload', upload.single('file'), async (req, res) => {
+  const file = req.file;
+  const bucketName = 'your-bucket-name';
+  const filename = file.originalname;
+
+  try {
+    await storage.bucket(bucketName).upload(file.buffer, {
+      destination: filename,
+    });
+    res.json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to upload file' });
+  }
+});
+
+module.exports = router;
+
+
+Index file
+const express = require('express');
+const app = express();
+const router = require('./router');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', router);
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
+
+
+//
+n this example, the React frontend code listens for changes to the file input and sends a POST request to the Node.js backend at the /api/upload endpoint when the "Upload" button is clicked. The Node.js backend code uses the multer middleware to parse the file upload and the @google-cloud/storage library to upload the file to Google Cloud Storage.
+
+Note that you will need to replace 'your-project-id', '/path/to/your/keyfile.json', and 'your-bucket-name' with the actual values for your project and bucket. Also, make sure to install the required packages (axios, multer, @google-cloud/storage) using npm or yarn.
+
+
+// "build": "webpack --config webpack.config.js"
+ "build": "webpack --config webpack.config.js"
+
+ BASE URL - 2, port 3000, Pkg.json - nodemon to node in script
+
+
+
+ Schedules
+ achievements 
+ Players Goals scored
+
+
+ No of Players and active
+ Achievements - Game win, lost and draw
+ Coaches Count
